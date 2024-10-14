@@ -2,9 +2,9 @@ from typing import List
 from fastapi import HTTPException
 from pydantic import UUID4
 from sqlalchemy.orm import Session
-from repository.city_repository import CityRepository
-from repository.region_repository import RegionRepository
-from schemas.city_schema import CityInput, CityOutput
+from repository import CityRepository
+from repository import RegionRepository
+from schemas import CityInput, CityOutput
 
 
 class CityService:

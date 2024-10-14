@@ -3,8 +3,8 @@ from typing import List, Optional
 from fastapi import HTTPException
 from pydantic import UUID4
 from sqlalchemy.orm import Session
-from repository.region_repository import RegionRepository
-from schemas.region_schema import RegionInput, RegionOutput
+from repository import RegionRepository
+from schemas import RegionInput, RegionOutput
 
 
 class RegionService:
