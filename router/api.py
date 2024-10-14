@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from routers.v1 import region_router, city_router
+from .v1 import region_router, city_router
 
 router = APIRouter(prefix="/api/v1")
 

@@ -8,15 +8,13 @@ from schemas import CityInput, CityOutput
 from service import CityService
 
 
-router = APIRouter(
-    prefix="/location/city",
-    tags=["location"]
-)
+router = APIRouter(prefix="/location/city", tags=["location"])
 
 
 @router.post("", status_code=201, response_model=CityOutput)
 def create_city(
-        data: CityInput, session: Session = Depends(get_db),
+    data: CityInput,
+    session: Session = Depends(get_db),
 ):
     _service = CityService(session)
     return _service.create(data)
@@ -36,18 +34,18 @@ def get_cities(session: Session = Depends(get_db)):
 
 @router.delete("/{_id}", status_code=204)
 def delete_city(
-        _id: UUID4,
-        session: Session = Depends(get_db),
+    _id: UUID4,
+    session: Session = Depends(get_db),
 ):
     _service = CityService(session)
-    _service.delete(_id):
-        
+    _service.delete(_id)
+
 
 @router.put("/{_id}", status_code=200, response_model=CityInput)
 def update_city(
-        _id: UUID4,
-        data: CityInput,
-        session: Session = Depends(get_db),
+    _id: UUID4,
+    data: CityInput,
+    session: Session = Depends(get_db),
 ):
     _service = CityService(session)
     return _service.update(_id, data)
